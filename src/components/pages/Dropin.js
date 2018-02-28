@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import "./Form.css";
+import "../../index.css";
 
 class Form extends Component {
   // Setting the component's initial state
@@ -31,33 +31,17 @@ class Form extends Component {
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-      <div>
-        
-        <form className="form">
-          <input
-            value={this.state.name}
-            name="name"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Name"
-          />
-          <input
-            value={this.state.email}
-            name="email"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Email"
-          />
-          <input
-            value={this.state.password}
-            name="password"
-            onChange={this.handleInputChange}
-            type="text"
-            placeholder="Password"
-          />
-          <button className="btn btn-primary" onClick={this.handleFormSubmit}>Sign Up</button>
-        </form>
+       <div>
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""></input>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="********" required="" autofocus=""></input>
+        <br></br>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
       </div>
+
     );
   }
 }
