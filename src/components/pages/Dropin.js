@@ -31,14 +31,20 @@ class Form extends Component {
   render() {
     // Notice how each input has a `value`, `name`, and `onChange` prop
     return (
-       <div>
+       <div className="dropinWrapper">
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus=""></input>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="********" required="" autofocus=""></input>
+        {/* <p>Email address or password is incorrect</p> */}
         <br></br>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a className="nav-link" href="/usersignup">
+          <button className="btn btn-lg btn-primary btn-block" href="/usersignup" type="submit">
+          Sign up</button>
+        </a>
+        
 
       </div>
 
