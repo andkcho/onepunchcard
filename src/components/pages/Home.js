@@ -1,33 +1,35 @@
-import React from "react";
-//import "./index.css"
+import React, { Component } from "react";
+import NavBar from "../common/NavBar";
+import Badges from "../common/Badges";
+import MerchantList from "../common/Merchants";
 
-const Home = () =>
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">OnePunchStamp</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon"></span>
-  </button>
 
-  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav mr-auto">
-      <li className="nav-item active">
-        <a className="nav-link" href="#">Profile<span class="sr-only">(current)</span></a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#">Edit Profile</a>
-      </li>
-      <li className="nav-item">
-      <a className="nav-link" href="#">Merchant</a>
-      </li>
-      
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a className="dropdown-item" href="#">Action</a>
-          <a className="dropdown-item" href="#">Another action</a>
-          <div className="dropdown-divider"></div>
-          <a className="dropdown-item" href="#">Something else here</a>
-        </div>
-    </ul>
-  </div>
-</nav>
+class Home  extends Component {
+  render() { 
+    return (
+      <div className="home">
+        <NavBar/>
+        <section className="badge-container">
+          <div className="column-badge">
+            <Badges className="merchant-1"/>
+            <Badges className="merchant-2"/>
+            <Badges className="merchant-3"/>
+            <Badges className="merchant-4"/>
+            <Badges className="merchant-5"/>
+            <Badges className="merchant-6"/>
 
-export default Home;
+          </div>
+        </section>
+        <section className="button-container">
+            <label className="sr-only">Stamp Code</label>
+            <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" required="" style={{textAlign: "center"}}></input>
+            <button className="btn btn-lg btn-primary btn-block" type="submit">Submit Code</button>
+        </section>
+        <MerchantList/>
+      </div>
+      //only return one element
+      )
+  }
+}
+ 
+export default Home ;
