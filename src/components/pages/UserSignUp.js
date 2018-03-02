@@ -15,7 +15,7 @@ class UserSignUp extends Component {
                 <label htmlFor="inputPassword" className="sr-only">Password</label>
                 <input type="password" id="inputPassword" className="form-control" placeholder="Password" required="" ></input>
                 <label htmlFor="inputPassword" className="sr-only">Password</label>
-                <input type="password" id="inputPassword" className="form-control" placeholder="Comfirm Password" required="" autoFocus=""></input>
+                <input type="password" id="inputPassword" className="form-control" placeholder="Confirm Password" required="" autoFocus=""></input>
                 {/* <p>passwords do not match</p> */}
                 <br/>
                     <a className="nav-link" href="/address">
