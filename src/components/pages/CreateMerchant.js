@@ -17,6 +17,11 @@ class CreateMerchant extends Component {
                         <option value="Self Care">Self Care</option>
                         <option value="Automotive">Automotive</option>
                     </select>
+                    <label class="file-upload-container" for="file-upload">
+                    <img src="https://image.flaticon.com/icons/svg/69/69475.svg" id="img-preview" />
+                    <input id="file-upload" type="file" style={{display:"none"}}/>
+                    Upload an Image
+                  </label>
                     <br/>
                     <a href="/businessaddress">
                     <button className="btn btn-lg btn-primary btn-block" type="submit">Join</button>
