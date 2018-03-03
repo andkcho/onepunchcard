@@ -3,6 +3,21 @@ import NavBar from "../common/NavBar";
 import Badges from "../common/Badges";
 import MerchantList from "../common/Merchants";
 
+var code1 = null;
+var code2 = null;
+var code3 = null;
+var code4 = null;
+var code5 = null;
+var code6 = null;
+
+console.log(code1);
+console.log(code2);
+console.log(code3);
+console.log(code4);
+console.log(code5);
+console.log(code6);
+
+
 
 class Home  extends Component {
   render() { 

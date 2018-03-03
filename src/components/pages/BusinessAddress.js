@@ -68,7 +68,9 @@ class BusinessAddress extends Component {
                 
                 {/* <p>passwords do not match</p> */}
                 <br></br>
+                <a href="/merchantprofile">
                 <button className="btn btn-lg btn-primary btn-block" type="submit">Next</button>
+                </a>
                 <br/>                
             
 
