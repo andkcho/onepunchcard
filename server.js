@@ -63,7 +63,7 @@ app.post("/signup", function(req, res){
       }
 })
 
-app.post("/signin", function(req, res){
+app.post("/login", function(req, res){
     if (req.body.email &&
         req.body.password) {
         var userData = {
@@ -79,7 +79,7 @@ app.post("/signin", function(req, res){
             //   req.session.userId = user._id;
                 req.session.user = user;
             //   return res.json(user);
-                return res.redirect("/cookie");
+                return res.redirect("/session");
             }
           });
         } else {
@@ -104,8 +104,9 @@ app.get('/logout', function(req, res, next) {
     }
   });
 
-app.get("/cookie", function(req, res){
+app.get("/session", function(req, res){
     console.log(req.session.user)
+    res.json(req.session.user._id);
     // console.log(Object.defineProperty(this, 'id', {value: req.sessionID}))
 })
 
