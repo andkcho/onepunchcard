@@ -18,7 +18,7 @@ class CreateMerchant extends Component {
                         <option value="Automotive">Automotive</option>
                     </select>
                     <label class="file-upload-container" for="file-upload">
-                    <img src="https://image.flaticon.com/icons/svg/69/69475.svg" id="img-preview" />
+                    <img src="https://image.flaticon.com/icons/svg/69/69475.svg" alt="" />
                     <input id="file-upload" type="file" style={{display:"none"}}/>
                     Upload an Image
                   </label>

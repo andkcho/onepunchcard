@@ -3,35 +3,28 @@ import NavBar from "../common/NavBar";
 import Badges from "../common/Badges";
 import MerchantList from "../common/Merchants";
 
-var code1 = null;
-var code2 = null;
-var code3 = null;
-var code4 = null;
-var code5 = null;
-var code6 = null;
-
-console.log(code1);
-console.log(code2);
-console.log(code3);
-console.log(code4);
-console.log(code5);
-console.log(code6);
-
 
 
 class Home  extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+        merchant:["https://pbs.twimg.com/profile_images/869950951112626176/Tzsb6A6Q_400x400.jpg","https://pbs.twimg.com/profile_images/869950951112626176/Tzsb6A6Q_400x400.jpg","https://pbs.twimg.com/profile_images/751084182999183360/8kat4Yt3_400x400.jpg", null, null, null,],
+        default: "https://png.icons8.com/ios/1600/add.png"
+     }
+     
+       
+}
+render
   render() { 
     return (
       <div className="home">
         <NavBar/>
         <section className="badge-container">
           <div className="column-badge">
-            <Badges className="merchant-1"/>
-            <Badges className="merchant-2"/>
-            <Badges className="merchant-3"/>
-            <Badges className="merchant-4"/>
-            <Badges className="merchant-5"/>
-            <Badges className="merchant-6"/>
+            {this.state.merchant.map ((merchantStap, idx) => 
+            <Badges default={this.state.default} merchant={this.state.merchant[idx]} className="merchant-1" key={idx}/>
+            )}
 
           </div>
         </section>
