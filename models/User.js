@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+//Password Hashing
 var bcrypt = require('bcrypt');
 
 var UserSchema = new mongoose.Schema({
