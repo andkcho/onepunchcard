@@ -1,13 +1,53 @@
 import React, {Component} from "react";
+import API from "../../utils/API.js";
 
 class UserAddress extends Component {
+
+       // Setting the component's initial state
+  state = {
+    streetaddress: "",
+    state: "AL",
+    zipcode: ""
+  };
+
+
+
+  handleInputChange = event => {
+    // Getting the value and name of the input which triggered the change
+    const { name, value } = event.target;
+
+    // Updating the input's state
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    // Preventing the default behavior of the form submit (which is to refresh the page)
+    event.preventDefault();
+    var location = {
+        streetaddress: this.state.streetaddress,
+        state: this.state.state,
+        zipcode: this.state.zipcode
+    };
+    API.updatelocation(location);
+  };
+
     render() { 
         return ( 
             <div className="dropinWrapper">
             <h1 className="h3 mb-3 font-weight-normal">Your Location</h1>
             <label className="sr-only">Address</label>
-            <input type="text" id="inputUserAddress" className="form-control" placeholder="2335 e Riverbend rd." required="" ></input>
-            <select className="form-control">
+            <input
+                className="form-control"
+                value={this.state.streetaddress}
+                name="streetaddress"
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Street Address"
+                />
+            {/* <input type="text" id="inputUserAddress" className="form-control" placeholder="2335 e Riverbend rd." required="" ></input> */}
+            <select name="state" value={this.state.state} className="form-control" onChange={this.handleInputChange}>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -61,12 +101,21 @@ class UserAddress extends Component {
             <option value="WY">Wyoming</option>
             </select>
             <label className="sr-only">Zip Code</label>
-            <input type="text" id="inputUserZip" className="form-control" placeholder="Zip Code" required="" ></input>
+            <input
+                className="form-control"
+                value={this.state.zipcode}
+                name="zipcode"
+                onChange={this.handleInputChange}
+                type="text"
+                placeholder="Zip Code"
+                />
+            {/* <input type="text" id="inputUserZip" className="form-control" placeholder="Zip Code" required="" ></input> */}
             
             {/* <p>passwords do not match</p> */}
             <br></br>
+            <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" type="submit">Update</button>
             <a className="nav-link" href="/home">
-                        <button className="btn btn-lg btn-primary btn-block" href="/usersignup" type="submit">
+                        <button className="btn btn-lg btn-primary btn-block" type="submit">
                         Next</button>
                     </a>
             <br/>                

@@ -8,20 +8,43 @@ var UserSchema = new mongoose.Schema({
     required: true,
     trim: true
   },
-  username: {
-    type: String,
-    unique: true,
-    required: true,
-    trim: true
-  },
+  // username: {
+  //   type: String,
+  //   unique: true,
+  //   required: true,
+  //   trim: true
+  // },
   password: {
     type: String,
     required: true,
   },
-//   passwordConf: {
-//     type: String,
-//     required: true,
-//   }
+  firstname: {
+    type: String,
+    required: true
+  },
+  lastname: {
+    type: String,
+    required: true
+  },
+  streetaddress: {
+    type: String,
+    default: null,
+    required: false,
+  },
+  state: {
+    type: String,
+    default: null,
+    required: false
+  },
+  zipcode: {
+    type: String,
+    default: null,
+    required: false
+  },
+  stamps: {
+    type: Array,
+    required: false
+  }
 });
 
 //hashing a password before saving it to the database

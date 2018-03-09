@@ -23,7 +23,3 @@ const App = () =>
   </Router>;
 
 export default App;
-
-// "start": "react-scripts start",
-    // "server": "node server.js",
-    // "start": "concurrently \"nodemon server.js\" \"yarn start\"",

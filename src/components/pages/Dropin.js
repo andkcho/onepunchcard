@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "../../index.css";
 import API from "../../utils/API.js";
-import axios from "axios";
 
 class Form extends Component {
   // Setting the component's initial state
@@ -38,7 +37,6 @@ class Form extends Component {
        <div className="dropinWrapper">
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label htmlFor="inputEmail" className="sr-only">Email address</label>
-        {/* <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required="" autoFocus=""></input> */}
         <input
         className="form-control"
           value={this.state.email}
@@ -56,7 +54,6 @@ class Form extends Component {
           type="text"
           placeholder="Password"
         />
-        {/* <input type="password" id="inputPassword" className="form-control" placeholder="********" required="" autoFocus=""></input> */}
         {/* <p>Email address or password is incorrect</p> */}
         <br></br>
         <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -67,33 +64,7 @@ class Form extends Component {
         
 
       </div>
-    //   <div className="dropinWrapper">
-        
-    //   <form className="form">
-    //     {/* <input
-    //       value={this.state.name}
-    //       name="name"
-    //       onChange={this.handleInputChange}
-    //       type="text"
-    //       placeholder="Name"
-    //     /> */}
-        // <input
-        //   value={this.state.email}
-        //   name="email"
-        //   onChange={this.handleInputChange}
-        //   type="text"
-        //   placeholder="Email"
-        // />
-        // <input
-        //   value={this.state.password}
-        //   name="password"
-        //   onChange={this.handleInputChange}
-        //   type="text"
-        //   placeholder="Password"
-        // />
-    //     <button className="btn btn-primary" onClick={this.handleFormSubmit}>Sign Up</button>
-    //   </form>
-    // </div>
+   
     );
   }
 }
