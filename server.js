@@ -44,11 +44,13 @@ app.post("/signup", function(req, res){
         return next(err);
     }
     if (req.body.email &&
-        req.body.username &&
+        // req.body.username &&
         req.body.password) {
         var userData = {
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
           email: req.body.email,
-          username: req.body.username,
+        //   username: req.body.username,
           password: req.body.password,
         }
         //use schema.create to insert data into the db
@@ -89,6 +91,15 @@ app.post("/login", function(req, res){
         }
       }
 )
+
+app.post('/updatelocation', function(req, res, next) {
+    var id = req.session.user._id;
+    console.log(id);
+    db.User.findByIdAndUpdate(id, { $set: { streetaddress: req.body.streetaddress, state: req.body.state, zipcode: req.body.zipcode }}, { new: true }, function (err, user) {
+        if (err) return handleError(err);
+        res.send(user);
+      });
+})
 
 // GET /logout
 app.get('/logout', function(req, res, next) {
