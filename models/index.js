@@ -2,6 +2,7 @@
 
 module.exports = {
     // Code: require("./Code"),
-    User: require("./User")
+    User: require("./User"),
+    // Stamps: require("./Stamps")
   };
   

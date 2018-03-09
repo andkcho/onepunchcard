@@ -30,8 +30,8 @@ render
         </section>
         <section className="button-container">
             <label className="sr-only">Stamp Code</label>
-            <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" required="" style={{textAlign: "center"}}></input>
-            <button className="btn btn-lg btn-primary btn-block" type="submit">Submit Code</button>
+            <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" required="" style={{textAlign: "center", width: "50%", margin: "auto"}}></input>
+            <button className="btn btn-lg btn-primary btn-block" type="submit" style={{textAlign: "center", width: "50%", margin: "auto"}}>Submit Code</button>
         </section>
         <MerchantList/>
       </div>

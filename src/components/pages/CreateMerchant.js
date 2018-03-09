@@ -24,7 +24,7 @@ class CreateMerchant extends Component {
                   </label>
                     <br/>
                     <a href="/businessaddress">
-                    <button className="btn btn-lg btn-primary btn-block" type="submit">Join</button>
+                    <button className="btn btn-lg btn-primary btn-block" type="submit">Next</button>
                     </a>
                 </div>
             </div>
