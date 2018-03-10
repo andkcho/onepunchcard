@@ -3,6 +3,8 @@
 module.exports = {
     // Code: require("./Code"),
     User: require("./User"),
+    //exporting schemas from .models/Merchant.js
+    Merchant: require("./Merchant")
     // Stamps: require("./Stamps")
   };
   

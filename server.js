@@ -100,7 +100,23 @@ app.post("/login", function(req, res){
         }
       }
 )
+//Creating Merchant object
+app.post("/createmerchant", function(req, res, next) {
+  var merchantData = {
+    name: req.body.name,
+    category: req.body.category
+  }
+  db.Merchant.create(merchantData, function (err, merchant) {
+    if (err) {
+      return next(err)
+    } else {
+      // return res.redirect('/profile');
+      return res.json(merchant)
+    }
+  })
+});
 
+//updating user lcation
 app.post('/updatelocation', function(req, res, next) {
     var id = req.session.user._id;
     console.log(id);
@@ -145,6 +161,8 @@ app.get("/session", function(req, res){
     console.log(req.session.user)
     res.json(req.session.user._id);
 })
+
+
 
 // Start the server
 app.listen(PORT, function() {

@@ -66,3 +66,25 @@ text-align: center
   border-radius: .25rem;
   text-align: center;
 } */
+
+section.button-container {
+  padding-bottom: 10px;
+}
+
+button.btn.btn-lg.btn-primary.btn-block {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input#inputCode.form-control {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+div.column-badge {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+label.file-upload-container {
+  padding-top: 10px;
+}
+
