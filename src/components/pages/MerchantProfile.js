@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../common/NavBar";
 import MerchantBadge from "../common/MerchantBadge";
+import MapLoader from "../maps/MapLoader";
 
 
 class MerchantProfile extends Component {
@@ -32,8 +33,8 @@ class MerchantProfile extends Component {
               </div>
             </div>
         </div>
-                
             
+
             
             </div>
          )
