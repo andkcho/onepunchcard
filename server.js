@@ -34,6 +34,14 @@ app.use(session({
     saveUninitialized: false
   }));
 
+//   function isLoggedIn(req, res, next) {
+//     // console.log(req);
+//     console.log(req.isAuthenticated());
+//     if (req.isAuthenticated())
+//         return next();
+//       res.redirect('/');
+//   };
+
 
 app.post("/signup", function(req, res){
     // confirm that user typed same password twice
@@ -52,6 +60,7 @@ app.post("/signup", function(req, res){
           email: req.body.email,
         //   username: req.body.username,
           password: req.body.password,
+          stamps: [null,null,null,null,null,null]
         }
         //use schema.create to insert data into the db
         db.User.create(userData, function (err, user) {
@@ -81,7 +90,7 @@ app.post("/login", function(req, res){
             //   req.session.userId = user._id;
                 req.session.user = user;
             //   return res.json(user);
-                return res.redirect("/session");
+                return res.redirect("/home");
             }
           });
         } else {
@@ -102,6 +111,16 @@ app.post('/updatelocation', function(req, res, next) {
 })
 
 // GET /logout
+app.get("/checkLogIn", function(req, res){
+    if (req.session.user){
+        console.log("1")
+        return
+    } else {
+        console.log("2");
+        return res.redirect('/');
+    }
+})
+
 app.get('/logout', function(req, res, next) {
     if (req.session) {
       // delete session object
@@ -115,10 +134,16 @@ app.get('/logout', function(req, res, next) {
     }
   });
 
+app.get('/userInfo', function(req,res,next){
+    console.log(req.session)
+    db.User.findById(req.session.user._id, function(err, user){
+        res.json(user)
+    })
+})
+
 app.get("/session", function(req, res){
     console.log(req.session.user)
     res.json(req.session.user._id);
-    // console.log(Object.defineProperty(this, 'id', {value: req.sessionID}))
 })
 
 // Start the server

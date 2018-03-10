@@ -110,8 +110,6 @@ class UserAddress extends Component {
                 placeholder="Zip Code"
                 />
             {/* <input type="text" id="inputUserZip" className="form-control" placeholder="Zip Code" required="" ></input> */}
-            
-            {/* <p>passwords do not match</p> */}
             <br></br>
             <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" type="submit">Update</button>
             <a className="nav-link" href="/home">
