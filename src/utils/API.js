@@ -9,5 +9,14 @@ export default {
     },
     updatelocation: function(location) {
         return axios.post("/updatelocation", location)
+    },
+    userInfo: function(){
+        return axios.get("/userInfo");
+    },
+    checkLogIn: function(){
+        return axios.get("/checkLogIn");
+    },
+    logout: function(){
+        return axios.get("/logout");
     }
 }

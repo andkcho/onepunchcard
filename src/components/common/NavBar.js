@@ -1,8 +1,13 @@
 import React from "react";
 //import "./index.css"
+import API from "../../utils/API";
+
 
 
 const NavBar = () =>
+// handleLogOut = event => {
+//   API.logout();
+// };
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href="/home">OnePunchStamp</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,7 +29,7 @@ const NavBar = () =>
       <a className="nav-link" href="/createmerchant" style={{float: "right"}}>Merchant</a>
       </li>
       <li className="nav-item">
-      <a className="nav-link" href="/" style={{float: "right"}}>Sign Out</a>
+      <a className="nav-link" href="/logout" style={{float: "right"}}>Sign Out</a>
       </li>
 
       
