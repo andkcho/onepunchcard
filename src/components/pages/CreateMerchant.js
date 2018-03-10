@@ -1,7 +1,37 @@
 import React, {Component} from "react";
 import NavBar from "../common/NavBar.js";
+import API from "../../utils/API.js";
+
+
 
 class CreateMerchant extends Component {
+
+    // Setting the component's initial state
+    state = {
+        name: "",
+        category: "Restaurant",
+        logo: ""
+    };
+
+    handleInputChange = event => {
+        const {name , value } = event.target;
+
+        this.setState({
+            [name]: value
+        });
+    };
+
+    handleFormSubmit = event => {
+        event.preventDefualt();
+            var merchant = {
+                name: this.state.name,
+                category: this.state.category,
+                logo: this.state.logo
+
+            };
+        API.updatemerchant(merchant);
+    }
+
     render() { 
         return ( 
             <div className="Merchant">
@@ -17,14 +47,16 @@ class CreateMerchant extends Component {
                         <option value="Self Care">Self Care</option>
                         <option value="Automotive">Automotive</option>
                     </select>
-                    <label class="file-upload-container" for="file-upload">
+                    <label className="file-upload-container" htmlFor="file-upload">
                     <img src="https://image.flaticon.com/icons/svg/69/69475.svg" alt="" />
                     <input id="file-upload" type="file" style={{display:"none"}}/>
                     Upload an Image
                   </label>
+                  <input type="text" id="inputBusiness" className="form-control" placeholder="IMG URL" required="" autoFocus=""></input>
                     <br/>
+
                     <a href="/businessaddress">
-                    <button className="btn btn-lg btn-primary btn-block" type="submit">Next</button>
+                    <button className="btn btn-lg btn-primary btn-block" onClick={this.handleFormSubmit} type="submit">Next</button>
                     </a>
                 </div>
             </div>
