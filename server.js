@@ -127,6 +127,16 @@ app.post('/updatelocation', function(req, res, next) {
       });
 })
 
+app.post('/submitcode', function(req, res, next) {
+    var id = req.session.user._id;
+    console.log(id);
+
+    db.User.findByIdAndUpdate(id, { $push: { stamps: "https://pbs.twimg.com/profile_images/869950951112626176/Tzsb6A6Q_400x400.jpg"}}, { new: true }, function (err, user) {
+        if (err) return handleError(err);
+        res.send(user);
+      });
+})
+
 // GET /logout
 app.get("/checkLogIn", function(req, res){
     if (req.session.user){

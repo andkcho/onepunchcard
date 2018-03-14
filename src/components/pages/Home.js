@@ -19,7 +19,7 @@ class Home  extends Component {
 
         default: "https://png.icons8.com/ios/1600/add.png",
         notLoggedIn: true,
-        code: null
+        code: ""
      }
          
 }
@@ -41,7 +41,7 @@ componentWillMount() {
 
 }
 
-submitCode = event => {
+handleFormSubmit = event => {
   // Preventing the default behavior of the form submit (which is to refresh the page)
   event.preventDefault();
   var code= this.state.code;  
@@ -67,7 +67,7 @@ render
         <section className="button-container">
             <label className="sr-only">Stamp Code</label>
             <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" value={this.state.code} style={{textAlign: "center", width: "75%", margin: "auto"}}/>
-            <button onClick={this.submitCode} className="btn btn-lg btn-primary btn-block" style={{textAlign: "center", width: "75%", margin: "auto",}}>Submit Code</button>
+            <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" style={{textAlign: "center", width: "75%", margin: "auto",}}>Submit Code</button>
         </section>
         <MerchantList/>
       </div>

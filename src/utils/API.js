@@ -18,5 +18,8 @@ export default {
     },
     logout: function(){
         return axios.get("/logout");
+    },
+    submitCode: function(code){
+        return axios.post("/submitcode", code)
     }
 }
