@@ -98,7 +98,7 @@ class UserSignUp extends Component {
                 {/* <p>passwords do not match</p> */}
                 <br/>
                 <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-                    <a className="nav-link" href="/address">
+                    <a className="nav-link" href="">
                         <button className="btn btn-lg btn-primary btn-block" type="submit">
                         Next</button>
                     </a>

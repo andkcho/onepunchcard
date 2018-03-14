@@ -28,6 +28,7 @@ componentDidMount() {
     this.setState({name : res.data.firstname, merchant : res.data.stamps})
   });
 
+  //input a MERCHANT code # to save into the userbadge DB []
   
 
 }

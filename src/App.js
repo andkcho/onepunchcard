@@ -8,6 +8,7 @@ import UserAddress from "./components/pages/UserAddress"
 import CreateMerchant from "./components/pages/CreateMerchant";
 import BusinessAddress from "./components/pages/BusinessAddress";
 import MerchantProfile from "./components/pages/MerchantProfile";
+import History from "./components/pages/History";
 
 const App = () => 
     <Router>
@@ -19,6 +20,7 @@ const App = () =>
       <Route exact path="/address" component={UserAddress}/>
       <Route exact path="/businessaddress" component={BusinessAddress}/>
       <Route exact path="/merchantprofile" component={MerchantProfile}/>
+      <Route exact path="/history" component={History}/>
       </div>
   </Router>;
 

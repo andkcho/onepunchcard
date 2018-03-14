@@ -18,5 +18,8 @@ export default {
     },
     logout: function(){
         return axios.get("/logout");
+    },
+    createmerchant: function(merchant){
+        return axios.post("/createmerchant", merchant)
     }
 }

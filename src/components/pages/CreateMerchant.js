@@ -19,17 +19,19 @@ class CreateMerchant extends Component {
         this.setState({
             [name]: value
         });
+        // console.log(this.state)
     };
 
     handleFormSubmit = event => {
-        event.preventDefualt();
+        event.preventDefault();
             var merchant = {
                 name: this.state.name,
                 category: this.state.category,
                 logo: this.state.logo
 
             };
-        API.updatemerchant(merchant);
+            console.log("submit fired")
+        API.createmerchant(merchant);
     }
 
     render() { 
@@ -38,26 +40,42 @@ class CreateMerchant extends Component {
                 <NavBar/>
                 <div className="dropinWrapper">
                     <h1 className="h3 mb-3 font-weight-normal">Add your business</h1>
-                    <input type="text" id="inputBusiness" className="form-control" placeholder="Business Name" required="" autoFocus=""></input>
-                    <select className="form-control">
-                        <option value="">Category</option>
-                        <option value="Restaurant">Restaurant</option>
-                        <option value="Coffee Shop">Coffee Shop</option>
-                        <option value="Merchandise">Merchandise</option>
-                        <option value="Self Care">Self Care</option>
-                        <option value="Automotive">Automotive</option>
-                    </select>
+                    <label className="sr-only">Business Name</label>
+                        <input
+                        className="form-control"
+                        value={this.state.name}
+                        name="name"
+                        onChange={this.handleInputChange}
+                        type="text"
+                        placeholder="Business Name"
+                        />
+                        
+                        <select name="category" value={this.state.category} className="form-control" onChange={this.handleInputChange}><option value="">Category</option>
+                            <option value="Restaurant">Restaurant</option>
+                            <option value="Coffee Shop">Coffee Shop</option>
+                            <option value="Merchandise">Merchandise</option>
+                            <option value="Self Care">Self Care</option>
+                            <option value="Automotive">Automotive</option>
+                        </select>
                     <label className="file-upload-container" htmlFor="file-upload">
                     <img src="https://image.flaticon.com/icons/svg/69/69475.svg" alt="" />
                     <input id="file-upload" type="file" style={{display:"none"}}/>
                     Upload an Image
                   </label>
-                  <input type="text" id="inputBusiness" className="form-control" placeholder="IMG URL" required="" autoFocus=""></input>
+                  <label className="sr-only">Logo</label>
+                        <input
+                        className="form-control"
+                        value={this.state.logo}
+                        name="logo"
+                        onChange={this.handleInputChange}
+                        type="text"
+                        placeholder="img url"
+                        />
                     <br/>
 
-                    <a href="/businessaddress">
-                    <button className="btn btn-lg btn-primary btn-block" onClick={this.handleFormSubmit} type="submit">Next</button>
-                    </a>
+                    {/* <a href="/businessaddress"> */}
+                    <button className="btn btn-lg btn-primary btn-block" onClick={this.handleFormSubmit} >Next</button>
+                    {/* </a> */}
                 </div>
             </div>
          )

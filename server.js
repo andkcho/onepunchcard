@@ -43,7 +43,7 @@ app.use(session({
 //   };
 
 
-app.post("/signup", function(req, res){
+app.post("/signup", function(req, res, next){
     // confirm that user typed same password twice
     if (req.body.password !== req.body.passwordConf) {
         var err = new Error('Passwords do not match.');
@@ -104,7 +104,8 @@ app.post("/login", function(req, res){
 app.post("/createmerchant", function(req, res, next) {
   var merchantData = {
     name: req.body.name,
-    category: req.body.category
+    category: req.body.category,
+    logo: req.body.logo
   }
   db.Merchant.create(merchantData, function (err, merchant) {
     if (err) {
