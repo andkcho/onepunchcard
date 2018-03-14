@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import "../../index.css";
 import API from "../../utils/API.js";
+import { Redirect } from 'react-router'
 
 class Form extends Component {
   // Setting the component's initial state
   state = {
     email: "",
-    password: ""
+    password: "",
+    loggedIn: false
   };
 
 
@@ -28,7 +30,9 @@ class Form extends Component {
       email: this.state.email,
       password:  this.state.password
     };
-    API.login(user);    
+    API.login(user).then(res => {
+      this.setState({loggedIn : true})
+    });    
   };
 
   render() {
@@ -56,7 +60,7 @@ class Form extends Component {
         />
         {/* <p>Email address or password is incorrect</p> */}
         <br></br>
-        <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block">Sign in{this.state.loggedIn && <Redirect to="/home"/>}</button>
         <a className="nav-link" href="/usersignup">
           <button className="btn btn-lg btn-primary btn-block" href="/usersignup" type="submit">
           Sign up</button>

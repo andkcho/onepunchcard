@@ -90,7 +90,8 @@ app.post("/login", function(req, res){
             //   req.session.userId = user._id;
                 req.session.user = user;
             //   return res.json(user);
-                return res.redirect("/home");
+            console.log("hell no")
+                return res.end();
             }
           });
         } else {
@@ -127,14 +128,26 @@ app.post('/updatelocation', function(req, res, next) {
       });
 })
 
+app.post('/submitcode', function(req, res, next) {
+    var id = req.session.user._id;
+    console.log(id);
+
+    db.User.findByIdAndUpdate(id, { $push: { stamps: "https://pbs.twimg.com/profile_images/869950951112626176/Tzsb6A6Q_400x400.jpg"}}, { new: true }, function (err, user) {
+        if (err) return handleError(err);
+        res.send(user);
+      });
+})
+
 // GET /logout
 app.get("/checkLogIn", function(req, res){
     if (req.session.user){
         console.log("1")
-        return
+        // return true;
+        return res.json({loggedIn: true});
     } else {
         console.log("2");
-        return res.redirect('/');
+        return res.json({loggedIn: false});
+        // return true;
     }
 })
 
@@ -145,7 +158,7 @@ app.get('/logout', function(req, res, next) {
         if(err) {
           return next(err);
         } else {
-          return res.redirect('/');
+        //   return res.redirect('/');
         }
       });
     }
