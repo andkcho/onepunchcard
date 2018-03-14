@@ -9,6 +9,7 @@ import CreateMerchant from "./components/pages/CreateMerchant";
 import BusinessAddress from "./components/pages/BusinessAddress";
 import MerchantProfile from "./components/pages/MerchantProfile";
 import LogOut from "./components/pages/LogOut";
+import History from "./components/pages/History";
 
 const App = () => 
     <Router>
@@ -22,6 +23,7 @@ const App = () =>
       <Route exact path="/businessaddress" component={BusinessAddress}/>
       <Route exact path="/merchantprofile" component={MerchantProfile}/>
       <Route exact path="/logout" component={LogOut}/>
+      <Route exact path="/history" component={History}/>
       </div>
   </Router>;
 

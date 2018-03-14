@@ -21,5 +21,9 @@ export default {
     },
     submitCode: function(code){
         return axios.post("/submitcode", code)
+    },
+    createmerchant: function(merchant){
+        return axios.post("/createmerchant", merchant)
+
     }
 }
