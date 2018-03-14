@@ -1,13 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 //import "./index.css"
+import { Redirect } from 'react-router'
 import API from "../../utils/API";
+import { Link } from 'react-router-dom';
 
 
 
-const NavBar = () =>
-// handleLogOut = event => {
-//   API.logout();
-// };
+// const NavBar = () =>
+class NavBar extends Component {
+
+  // handleLogOut = event => {
+  //   event.preventDefault();
+  //   API.logout().then(res => {
+  //     // {<Redirect to ="/"/>}
+  //   })
+    
+  // };
+
+  render() {
+    return (
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <a className="navbar-brand" href="/home">OnePunchStamp</a>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,10 +31,10 @@ const NavBar = () =>
         <a className="nav-link sr-only" href="">Profile<span>(current)</span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="" style={{float: "right"}}>Profile</a>
+        <a className="nav-link" href="/home" style={{float: "right"}}>Profile</a>
       </li>
       <li className="nav-item">
-      <a className="nav-link" href="" style={{float: "right"}}>History</a>
+      <a className="nav-link" href="/history" style={{float: "right"}}>History</a>
       </li>
       <li className="nav-item">
       <a className="nav-link" href="/createmerchant" style={{float: "right"}}>Merchant</a>
@@ -42,5 +53,9 @@ const NavBar = () =>
     </ul>
   </div>
 </nav>
+    )
+  }
+
+}
 
 export default NavBar;

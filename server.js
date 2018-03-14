@@ -90,7 +90,8 @@ app.post("/login", function(req, res){
             //   req.session.userId = user._id;
                 req.session.user = user;
             //   return res.json(user);
-                return res.redirect("/home");
+            console.log("hell no")
+                return res.end();
             }
           });
         } else {
@@ -130,10 +131,12 @@ app.post('/updatelocation', function(req, res, next) {
 app.get("/checkLogIn", function(req, res){
     if (req.session.user){
         console.log("1")
-        return
+        // return true;
+        return res.json({loggedIn: true});
     } else {
         console.log("2");
-        return res.redirect('/');
+        return res.json({loggedIn: false});
+        // return true;
     }
 })
 
@@ -144,7 +147,7 @@ app.get('/logout', function(req, res, next) {
         if(err) {
           return next(err);
         } else {
-          return res.redirect('/');
+        //   return res.redirect('/');
         }
       });
     }
