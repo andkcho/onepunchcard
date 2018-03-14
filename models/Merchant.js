@@ -11,7 +11,6 @@ var MerchantSchema = new mongoose.Schema({
         required: true
     }, 
     logo: {
-        default: null,
         type: String,
         required: false
     },

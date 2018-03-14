@@ -23,7 +23,7 @@ const NavBar = () =>
         <a className="nav-link" href="" style={{float: "right"}}>Profile</a>
       </li>
       <li className="nav-item">
-      <a className="nav-link" href="" style={{float: "right"}}>History</a>
+      <a className="nav-link" href="/history" style={{float: "right"}}>History</a>
       </li>
       <li className="nav-item">
       <a className="nav-link" href="/createmerchant" style={{float: "right"}}>Merchant</a>
