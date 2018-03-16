@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import NavBar from "../common/NavBar";
 import Badges from "../common/Badges";
 import MerchantList from "../common/Merchants";
+import RedeemButton from "../common/RedeemButton";
 // import axios from "axios";
 import API from "../../utils/API";
 import { Redirect } from 'react-router-dom';
@@ -18,7 +19,8 @@ class Home  extends Component {
 
         default: "https://png.icons8.com/ios/1600/add.png",
         notLoggedIn: true,
-        code: ""
+        code: "",
+        complete: false
      }
          
 }
@@ -27,19 +29,25 @@ componentWillMount() {
 
   API.checkLogIn().then(res => {
     console.log(res.data.loggedIn)
-    if (res.data.loggedIn == true) {
+    if (res.data.loggedIn === true) {
       this.setState({notLoggedIn: false})
       // console.log(this.state.notLoggedIn)
     }
   });
   API.userInfo().then(res => {
       console.log(res.data);
-    this.setState({name : res.data.firstname, merchant : res.data.stamps})
+    this.setState({name : res.data.firstname, merchant : res.data.stamps});
+    if (this.state.merchant.includes(null)){
+      return
+    } else {
+      this.setState({complete: true});
+    }
   });
-  //input a MERCHANT code # to save into the userbadge DB []
-  
-
 }
+
+// shouldComponentUpdate(nextProps, nextState){
+//   return
+// };
 
 handleInputChange = event => {
   // Getting the value and name of the input which triggered the change
@@ -71,6 +79,7 @@ handleFormSubmit = event => {
     }
 
   });
+  this.forceUpdate();
 };
 
 render
@@ -81,26 +90,38 @@ render
         <NavBar/>
         {/* {this.state.notLoggedIn ? null : <Redirect to="/" />} */}
         <section className="badge-container">
-          <div className="column-badge">
+          <div className="column-badge"> 
           <h1>Hello, {this.state.name}!</h1>
-            {this.state.merchant.map ((merchantStap, idx) => 
+          
+          {this.state.merchant.map((merchantStamp, idx) => 
             <Badges default={this.state.default} merchant={this.state.merchant[idx]} className="merchant-1" key={idx}/>
             )}
+           </div>
 
-          </div>
         </section>
         <section className="button-container">
-            <input
-            className="form-control"
-            value={this.state.code}
-            name="code"
-            onChange={this.handleInputChange}
-            type="text"
-            style={{textAlign: "center", width: "75%", margin: "auto",}}
-            placeholder="Input Code"
-            />
-            {/* <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" onChange={this.handleInputChange} value={this.state.code} style={{textAlign: "center", width: "75%", margin: "auto"}}/> */}
-            <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" style={{textAlign: "center", width: "75%", margin: "auto",}}>Submit Code</button>
+            {
+              this.state.complete ? null :
+              (
+                <input
+                className="form-control"
+                value={this.state.code}
+                name="code"
+                onChange={this.handleInputChange}
+                type="text"
+                style={{textAlign: "center", width: "75%", margin: "auto",}}
+                placeholder="Input Code"
+                />
+              )
+            }
+        
+            {
+              this.state.complete ? <RedeemButton/> :
+              (
+              <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" style={{textAlign: "center", width: "75%", margin: "auto",}}>Submit Code</button>
+              )
+            }
+           
         </section>
         <MerchantList/>
       </div>
