@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "../common/NavBar";
-import MerchantBadge from "../common/MerchantBadge";
+// import MerchantBadge from "../common/MerchantBadge";
 import MapLoader from "../maps/MapLoader";
+import StarBucks from "../common/cards/StarBucks";
 
 
 class MerchantProfile extends Component {
@@ -14,7 +15,7 @@ class MerchantProfile extends Component {
             <div className="profile">
             <NavBar/>
                 <div>
-                    <MerchantBadge/>
+                    <StarBucks/>
                 </div>
                 <div id="accordion">
                     <div className="card">
