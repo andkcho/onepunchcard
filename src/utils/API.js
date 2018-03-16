@@ -24,6 +24,8 @@ export default {
     },
     createmerchant: function(merchant){
         return axios.post("/createmerchant", merchant)
-
+    },
+    updateStamp: function(newArray){
+        return axios.post("/updateStamp", newArray)
     }
 }

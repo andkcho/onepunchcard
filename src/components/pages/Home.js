@@ -4,8 +4,7 @@ import Badges from "../common/Badges";
 import MerchantList from "../common/Merchants";
 // import axios from "axios";
 import API from "../../utils/API";
-import { Redirect } from 'react-router';
-import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
 
@@ -42,11 +41,36 @@ componentWillMount() {
 
 }
 
+handleInputChange = event => {
+  // Getting the value and name of the input which triggered the change
+  const { name, value } = event.target;
+
+  // Updating the input's state
+  this.setState({
+    [name]: value
+  });
+};
+
 handleFormSubmit = event => {
   // Preventing the default behavior of the form submit (which is to refresh the page)
   event.preventDefault();
-  var code= this.state.code;  
-  API.submitCode(code);
+  var code= {code: this.state.code}; 
+  console.log(code); 
+  API.submitCode(code).then(res => {
+    // console.log(res.data.logo);
+    console.log(res.data);
+    for (var i = 0; i < this.state.merchant.length; i++){
+      if (this.state.merchant[i] === null){
+        var array = this.state.merchant;
+        array.splice(i, 1, res.data);
+        this.setState({merchant: array});
+        var newArray = {stamps: this.state.merchant}
+        API.updateStamp(newArray);
+        i = 6;
+      }
+    }
+
+  });
 };
 
 render
@@ -66,8 +90,16 @@ render
           </div>
         </section>
         <section className="button-container">
-            <label className="sr-only">Stamp Code</label>
-            <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" value={this.state.code} style={{textAlign: "center", width: "75%", margin: "auto"}}/>
+            <input
+            className="form-control"
+            value={this.state.code}
+            name="code"
+            onChange={this.handleInputChange}
+            type="text"
+            style={{textAlign: "center", width: "75%", margin: "auto",}}
+            placeholder="Input Code"
+            />
+            {/* <input type="text" id="inputCode" className="form-control" placeholder="ABC1234" onChange={this.handleInputChange} value={this.state.code} style={{textAlign: "center", width: "75%", margin: "auto"}}/> */}
             <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" style={{textAlign: "center", width: "75%", margin: "auto",}}>Submit Code</button>
         </section>
         <MerchantList/>

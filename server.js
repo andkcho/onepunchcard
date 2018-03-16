@@ -90,7 +90,6 @@ app.post("/login", function(req, res){
             //   req.session.userId = user._id;
                 req.session.user = user;
             //   return res.json(user);
-            console.log("hell no")
                 return res.end();
             }
           });
@@ -106,7 +105,10 @@ app.post("/createmerchant", function(req, res, next) {
   var merchantData = {
     name: req.body.name,
     category: req.body.category,
-    logo: req.body.logo
+    logo: req.body.logo,
+    streetaddress: req.body.streetaddress,
+    state: req.body.state,
+    zipcode: req.body.zipcode
   }
   db.Merchant.create(merchantData, function (err, merchant) {
     if (err) {
@@ -118,24 +120,35 @@ app.post("/createmerchant", function(req, res, next) {
   })
 });
 
-//updating user lcation
+//updating user location
 app.post('/updatelocation', function(req, res, next) {
     var id = req.session.user._id;
     console.log(id);
     db.User.findByIdAndUpdate(id, { $set: { streetaddress: req.body.streetaddress, state: req.body.state, zipcode: req.body.zipcode }}, { new: true }, function (err, user) {
-        if (err) return handleError(err);
+        if (err) return err;
         res.send(user);
       });
 })
 
 app.post('/submitcode', function(req, res, next) {
-    var id = req.session.user._id;
-    console.log(id);
+    // var id = req.session.user._id;
+    console.log(req.body);
+    
+    db.Merchant.findById(req.body.code, function (err, merchant){
+        if (err) return err;
+        // console.log(logo);
+        res.json(merchant.logo);
+    })
+})
 
-    db.User.findByIdAndUpdate(id, { $push: { stamps: "https://pbs.twimg.com/profile_images/869950951112626176/Tzsb6A6Q_400x400.jpg"}}, { new: true }, function (err, user) {
-        if (err) return handleError(err);
+app.post('/updateStamp', function(req, res, next){
+    console.log(req.session.user._id)
+    console.log(req.body.stamps)
+
+    db.User.findByIdAndUpdate(req.session.user._id, { $set: {stamps: req.body.stamps}}, {new: true}, function(err, user){
+        if (err) return err;
         res.send(user);
-      });
+    })
 })
 
 // GET /logout

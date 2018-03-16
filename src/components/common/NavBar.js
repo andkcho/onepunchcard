@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 //import "./index.css"
-import { Redirect } from 'react-router'
 import API from "../../utils/API";
 import { Link } from 'react-router-dom';
 
