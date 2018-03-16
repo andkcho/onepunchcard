@@ -1,5 +1,9 @@
 import React, {Component} from "react";
-import MerchantCarousel from "./MerchantCarousel"
+import RestaurantCarousel from "./RestaurantCarousel";
+import MerchandiseCarousel from "./MerchandiseCarousel";
+import MerchantCarousel from "./MerchantCarousel";
+import SelfcareCarousel from "./SelfcareCarousel";
+import AutoCarousel from "./AutoCarousel";
 
 class MerchantList extends Component {
     render() { 
@@ -16,7 +20,7 @@ class MerchantList extends Component {
           
               <div id="collapseOne" className="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                 <div className="card-body">
-                    <MerchantCarousel/>
+                    <RestaurantCarousel/>
                 </div>
               </div>
             </div>
@@ -44,7 +48,7 @@ class MerchantList extends Component {
               </div>
               <div id="collapseThree" className="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                 <div className="card-body">
-                  <MerchantCarousel/>
+                  <MerchandiseCarousel/>
                 </div>
               </div>
             </div>
@@ -58,7 +62,7 @@ class MerchantList extends Component {
               </div>
               <div id="collapseFour" className="collapse" aria-labelledby="headingFour" data-parent="#accordion">
                 <div className="card-body">
-                  <MerchantCarousel/>
+                  <SelfcareCarousel/>
                 </div>
               </div>
             </div>
@@ -72,7 +76,7 @@ class MerchantList extends Component {
               </div>
               <div id="collapseFive" className="collapse" aria-labelledby="headingFive" data-parent="#accordion">
                 <div className="card-body">
-                  <MerchantCarousel/>
+                  <AutoCarousel/>
                 </div>
               </div>
             </div>

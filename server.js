@@ -118,7 +118,7 @@ app.post("/createmerchant", function(req, res, next) {
   })
 });
 
-//updating user lcation
+//updating user location
 app.post('/updatelocation', function(req, res, next) {
     var id = req.session.user._id;
     console.log(id);
