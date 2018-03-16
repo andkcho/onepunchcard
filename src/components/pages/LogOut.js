@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import NavBar from "../common/NavBar";
-// import axios from "axios";
 import API from "../../utils/API";
 
 
@@ -16,7 +14,6 @@ class LogOut  extends Component {
 }
 
 componentDidMount() {
-
   API.logout();
 }
 
