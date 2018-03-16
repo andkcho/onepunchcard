@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../../index.css";
 import API from "../../utils/API.js";
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router-dom'
 
 class Form extends Component {
   // Setting the component's initial state
@@ -40,18 +40,16 @@ class Form extends Component {
     return (
        <div className="dropinWrapper">
         <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label htmlFor="inputEmail" className="sr-only">Email address</label>
         <input
-        className="form-control"
+          className="form-control"
           value={this.state.email}
           name="email"
           onChange={this.handleInputChange}
           type="text"
           placeholder="Email"
         />
-        <label htmlFor="inputPassword" className="sr-only">Password</label>
         <input
-        className="form-control"
+          className="form-control"
           value={this.state.password}
           name="password"
           onChange={this.handleInputChange}

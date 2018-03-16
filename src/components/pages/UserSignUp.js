@@ -9,6 +9,8 @@ class UserSignUp extends Component {
     passwordConf: "",
     firstname: "",
     lastname: "",
+    passwordErr: "",
+    successMsg: ""
 
   };
 
@@ -37,71 +39,71 @@ class UserSignUp extends Component {
     };
     if (cpassword !== user.password){
         // display error
+        this.setState({passwordErr: "Passwords do not match! Please try again."})
         console.log("error, password does not match")
-    } else {API.signup(user);}  
+    } else {
+      this.setState({passwordErr: "", successMsg: "You are now signed up. Please press next."});
+      API.signup(user).then(res => {
+        var login = {
+          email: this.state.email,
+          password:  this.state.password
+        }
+        API.login(login);
+         });
+    }  
   };
     
     render() { 
         return ( 
             <div className="dropinWrapper">
                 <h1 className="h3 mb-3 font-weight-normal">Create account</h1>
-                <label className="sr-only">First Name</label>
                 <input
-                className="form-control"
-                value={this.state.firstname}
-                name="firstname"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="First Name"
+                  className="form-control"
+                  value={this.state.firstname}
+                  name="firstname"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="First Name"
                 />
-                {/* <input type="text" id="inputFirstName" className="form-control" placeholder="First Name" required="" ></input> */}
-                <label className="sr-only">Last Name</label>
                 <input
-                className="form-control"
-                value={this.state.lastname}
-                name="lastname"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="Last Name"
+                  className="form-control"
+                  value={this.state.lastname}
+                  name="lastname"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="Last Name"
                 />
-                {/* <input type="text" id="inputLastName" className="form-control" placeholder="Last Name" required="" ></input> */}
-                <label htmlFor="inputEmail" className="sr-only">Email address</label>
                 <input
-                className="form-control"
-                value={this.state.email}
-                name="email"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="Email"
+                  className="form-control"
+                  value={this.state.email}
+                  name="email"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="Email"
                 />
-                {/* <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required="" ></input> */}
-                <label htmlFor="inputPassword" className="sr-only">Password</label>
                 <input
-                className="form-control"
-                value={this.state.password}
-                name="password"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="Password"
+                  className="form-control"
+                  value={this.state.password}
+                  name="password"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="Password"
                 />
-                {/* <input type="password" id="inputPassword" className="form-control" placeholder="Password" required="" ></input> */}
-                <label htmlFor="inputPassword" className="sr-only">Password</label>
                 <input
-                className="form-control"
-                value={this.state.passwordConf}
-                name="passwordConf"
-                onChange={this.handleInputChange}
-                type="text"
-                placeholder="Confirm Password"
+                  className="form-control"
+                  value={this.state.passwordConf}
+                  name="passwordConf"
+                  onChange={this.handleInputChange}
+                  type="text"
+                  placeholder="Confirm Password"
                 />
-                {/* <input type="password" id="inputPasswordConf" className="form-control" placeholder="Confirm Password" required="" autoFocus=""></input> */}
-                {/* <p>passwords do not match</p> */}
+                <p style={{color:"red"}}>{this.state.passwordErr}</p>
+                <p style={{color:"dark blue"}}>{this.state.successMsg}</p>
                 <br/>
-                <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
-                    <a className="nav-link" href="">
-                        <button className="btn btn-lg btn-primary btn-block" type="submit">
-                        Next</button>
-                    </a>
+                <button onClick={this.handleFormSubmit} className="btn btn-lg btn-primary btn-block" >Sign Up</button>
+                <a className="nav-link" href="/address">
+                  <button className="btn btn-lg btn-primary btn-block">Next</button>
+                </a>
                 <br/>                
             
     
