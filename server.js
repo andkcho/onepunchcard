@@ -10,7 +10,9 @@ var path = require('path')
 //     secret: 'foo',
 //     store: new MongoStore(options)
 // }));
-
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("build"));
+}
 var PORT = process.env.PORT|| 3001;
 
 // Use body-parser for handling form submissions
@@ -194,6 +196,11 @@ app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./build/index.html"));
   });
 
+  // Send every request to the React app
+// Define any API routes before this runs
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 // Start the server
 app.listen(PORT, function() {
     console.log("App running on port " + PORT + "!");
