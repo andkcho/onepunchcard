@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 
-class Redrock extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
+class Beans extends Component {
+    
+    state = {
+        picture: "hello!!"
+    }
+
+    componentDidMount() {
+        console.log(this.state.picture);
     }
     render() { 
         return ( 
             <div className="card">
-            <img className="card-img-top" src="http://redrockbrewing.com/wp-content/uploads/2013/08/Downtown-Slider.jpg" style={{width: "331px", height: "196px"}} alt=""/>
+            <img className="card-img-top" src="http://www.beansandbrews.com/wp/wp-content/images/112-in.jpg" style={{width: "331px", height: "196px"}} alt=""/>
                 <div className="card-body" >
                     <div className="material" style={{float: "left"}}>
                         <div>
-                        <p className="card-text">Redrock</p>
+                        <p className="card-text">Beans and Brew</p>
                         </div>
                         <div>
                         <div className="star-ratings-css">
@@ -22,19 +26,24 @@ class Redrock extends Component {
                             <span className="fa fa-star"></span>
                             <span className="fa fa-star"></span>
                         </div>
+                         {/* Button trigger modal  */}
                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                         Visit
                         </button>
                         </div>
                     </div>
                     <div className="stamp" style={{float: "right"}}>
-                    <img src="https://utahbeerfestival.com/wp-content/uploads/sites/4/2017/02/rr-logo-red-jpeg1.jpg" alt="" style={{width: "90px", height: "90px", borderRadius:"50%"}}/>
+                    <img src="https://pbs.twimg.com/profile_images/869950951112626176/Tzsb6A6Q_400x400.jpg" alt="" style={{width: "90px", height: "90px", borderRadius:"50%"}}/>
                     </div>
 
                 </div>
+                
+
             </div>
+
+            
          )
     }
 }
  
-export default Redrock;
+export default Beans;

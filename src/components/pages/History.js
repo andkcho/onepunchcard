@@ -13,7 +13,7 @@ class History extends Component {
         "google map w/pins"
 
         <div className="container">
-          <img src="/w3images/bandmember.jpg" alt="Avatar" style={{width:"100%"}}/>
+          <img src="http://www.beansandbrews.com/wp/wp-content/images/112-in.jpg" alt="Avatar" style={{width:"100%"}}/>
           <p>Hello. How are you today?</p>
           <span className="time-right">11:00</span>
         </div>

@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import NavBar from "../common/NavBar";
 // import MerchantBadge from "../common/MerchantBadge";
 import MapLoader from "../maps/MapLoader";
-import StarBucks from "../common/cards/StarBucks";
+import Beans from "../common/cards/Beans";
+
 
 
 class MerchantProfile extends Component {
@@ -15,7 +16,7 @@ class MerchantProfile extends Component {
             <div className="profile">
             <NavBar/>
                 <div>
-                    <StarBucks/>
+                    <Beans/>
                 </div>
                 <div id="accordion">
                     <div className="card">
@@ -35,6 +36,25 @@ class MerchantProfile extends Component {
             </div>
         </div>
             
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
             
             </div>

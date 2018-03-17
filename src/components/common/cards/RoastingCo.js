@@ -22,7 +22,9 @@ class RoastingCo extends Component {
                             <span className="fa fa-star"></span>
                             <span className="fa fa-star"></span>
                         </div>
-                        <button type="button" className="btn btn-primary" style={{float: ""}}>Visit</button>
+                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Visit
+                        </button>
                         </div>
                     </div>
                     <div className="stamp" style={{float: "right"}}>

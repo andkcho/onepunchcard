@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 
 class Beans extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
+    
+    state = {
+        picture: "http://www.beansandbrews.com/wp/wp-content/images/112-in.jpg"
+    }
+
+    componentDidMount() {
+        console.log(this.state.picture);
     }
     render() { 
         return ( 
             <div className="card">
-            <img className="card-img-top" src="http://www.beansandbrews.com/wp/wp-content/images/112-in.jpg" style={{width: "331px", height: "196px"}} alt=""/>
+            <img className="card-img-top" src={this.state.picture} style={{width: "331px", height: "196px"}} alt=""/>
                 <div className="card-body" >
                     <div className="material" style={{float: "left"}}>
                         <div>
@@ -22,7 +26,10 @@ class Beans extends Component {
                             <span className="fa fa-star"></span>
                             <span className="fa fa-star"></span>
                         </div>
-                        <button type="button" className="btn btn-primary" style={{float: ""}}>Visit</button>
+                         {/* Button trigger modal  */}
+                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        Visit
+                        </button>
                         </div>
                     </div>
                     <div className="stamp" style={{float: "right"}}>
@@ -30,7 +37,11 @@ class Beans extends Component {
                     </div>
 
                 </div>
+                
+
             </div>
+
+            
          )
     }
 }

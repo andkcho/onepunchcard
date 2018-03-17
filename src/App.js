@@ -10,6 +10,7 @@ import BusinessAddress from "./components/pages/BusinessAddress";
 import MerchantProfile from "./components/pages/MerchantProfile";
 import LogOut from "./components/pages/LogOut";
 import History from "./components/pages/History";
+import Deals from "./components/pages/Deals";
 
 const App = () => 
     <Router>
@@ -24,6 +25,7 @@ const App = () =>
       <Route exact path="/merchantprofile" component={MerchantProfile}/>
       <Route exact path="/logout" component={LogOut}/>
       <Route exact path="/history" component={History}/>
+      <Route exact path="/deals" component={Deals}/>
       </div>
   </Router>;
 
