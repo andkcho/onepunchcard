@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var app = express();
 var db = require('./models');
+var path = require('path')
  
 // app.use(session({
 //     secret: 'foo',
@@ -189,7 +190,9 @@ app.get("/session", function(req, res){
     res.json(req.session.user._id);
 })
 
-
+app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, "./build/index.html"));
+  });
 
 // Start the server
 app.listen(PORT, function() {
